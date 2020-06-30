@@ -8,15 +8,18 @@ class NT(enum.Enum):
     class VELIKA_VAR(Token):
         def širina(self, **_):
             return 12
-    FRAC = '\\frac'
+    FRAC = '\frac'
 
 def nt_lex(kod):
+    kod.replace('\f', '\\f')
     lex = Tokenizer(kod)
     for znak in iter(lex.čitaj, ''):
         if znak.isspace():
             lex.zanemari()
         elif znak == '\\':
             if lex.slijedi('f') and lex.slijedi('r') and lex.slijedi('a') and lex.slijedi('c'):
+                pročitano = lex.sadržaj
+                print(pročitano)
                 yield lex.token(NT.FRAC)
         elif znak.isupper():
             yield lex.token(NT.VELIKA_VAR)
