@@ -68,6 +68,9 @@ class NTParser(Parser):
             if self >> NT.PLUS:
                 var2 = self.varijabla()
                 return Zbroj(vitice, var1, var2)
+            elif self >= NT.FRAC:
+                var2 = self.faktor()
+                return Umnožak(var1, var2)
             else:
                 var2 = self.varijabla()
                 return Umnožak(var1,var2)
@@ -109,5 +112,7 @@ if __name__ =='__main__':
 
     fo = NTParser.parsiraj(tokeni)
     print(fo)
+    prikaz(fo, 4)
 
     print(fo.širina())
+    
