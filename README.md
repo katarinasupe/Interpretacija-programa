@@ -128,5 +128,5 @@ NL prepoznaje 2 vrste komentara:
 * **višelinijski** (`/**/`)
 
 ### Izrada projekta
-* Matea Čotić, Manuela Pleša, Katarina Šupe
+Matea Čotić, Manuela Pleša, Katarina Šupe
 
